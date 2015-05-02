@@ -121,20 +121,36 @@ if g:islinux
     set rtp+=~/.vim/bundle/Vundle.vim
     call vundle#begin()
 else
-    set rtp+=$VIM/vimfiles/bundle/vundle/
-    call vundle#rc('$VIM/vimfiles/bundle/')
+    set rtp+=$VIM/vimfiles/bundle/Vundle.vim/
+    let path='$VIM/vimfiles/bundle'
+    call vundle#begin(path)
 endif
 
-" 使用Vundle来管理Vundle，这个必须要有。
-Plugin 'gmarik/vundle'
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
-" 以下为要安装或更新的插件，不同仓库都有（具体书写规范请参考帮助）
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+""Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+""Plugin 'L9'
+" Git plugin not hosted on GitHub
+""Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+""Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+""Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+""Plugin 'user/L9', {'name': 'newL9'}
+
 
 "********************************************
 "My Plugin
 
     " Auto complete
-    "Plugin 'Valloric/YouCompleteMe.git' 
+    Plugin 'Valloric/YouCompleteMe.git' 
 
     " lean & mean status/tabline for vim that's light as air  
     Plugin 'bling/vim-airline.git'
@@ -200,6 +216,22 @@ Plugin 'gmarik/vundle'
     Plugin 'tomasr/molokai'
     Plugin 'flazz/vim-colorschemes'
 "********************************************
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
 " -----------------------------------------------------------------------------
 "vim comfigure
